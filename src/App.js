@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
 import BasicInfo from './BasicInfo/BasicInfo';
@@ -7,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super();
     this.state = {
-      person: [
+      people: [
         {
           name:"Jordan Howard",
           dateOfBirth: "August 31 1995",
@@ -22,6 +21,11 @@ class App extends Component {
           name:"Louis Esposito",
           dateOfBirth: "August 20 1995",
           phoneNumber: "754-568-9654"
+        },
+        {
+          name:"Louis Esposito",
+          dateOfBirth: "August 20 1995",
+          phoneNumber: "754-568-9654"
         }
       ] 
     }
@@ -30,13 +34,20 @@ class App extends Component {
   render() {
     return (
       <div>
-        <BasicInfo
-        name={this.state.person[0].name}
-        dateOfBirth={this.state.person[0].dateOfBirth}
-        phoneNumber={this.state.person[0].phoneNumber}/>
+        {this.state.people.map((person) => (
+           <BasicInfo
+           name={person.name}
+           dateOfBirth={person.dateOfBirth}
+           phoneNumber={person.phoneNumber}/>
+        ))}
       </div>
     )
   }
 }
+
+/* <BasicInfo
+        name={this.state.person[0].name}
+        dateOfBirth={this.state.person[0].dateOfBirth}
+        phoneNumber={this.state.person[0].phoneNumber}/> */
 
 export default App;
